@@ -1,0 +1,28 @@
+     /* ====================================================================== */
+     /* >>PRE-COMPILER<<                                                       */
+     /*   >>CRTCMD<< CRTSRVPGM    SRVPGM(&LI/&OB);                             */
+     /*   >>IMPORTANT<<                                                        */
+     /*     >>PARM<< MODULE(&LI/BASE64R4);                                     */
+     /*     >>PARM<< EXPORT(*SRCFILE);                                         */
+     /*     >>PARM<<   SRCFILE(&SL/&SF);                                       */
+     /*     >>PARM<<   SRCMBR(BASE64);                                         */
+     /*     >>PARM<< ACTGRP(*CALLER);                                          */
+     /*     >>PARM<< ALWUPD(*YES);                                             */
+     /*     >>PARM<< ALWLIBUPD(*YES);                                          */
+     /*     >>PARM<< TEXT('Base64 Encoder/Decoder');                           */
+     /*     >>PARM<< DETAIL(*BASIC);                                           */
+     /*     >>PARM<< TGTRLS(V7R2M0);                                           */
+     /*   >>END-IMPORTANT<<                                                    */
+     /*   >>EXECUTE<<                                                          */
+     /* >>END-PRE-COMPILER<<                                                   */
+     /* ====================================================================== */
+STRPGMEXP PGMLVL(*CURRENT) SIGNATURE('BASE64R4 V1.00  ')
+   EXPORT symbol('base64_encode')
+   EXPORT symbol('base64_decode')
+   EXPORT symbol('base64_encodeBufferToStream')
+   EXPORT symbol('base64_encodeStreamToStream')
+   EXPORT  symbol('base64_decodeBufferToStream')
+   EXPORT  symbol('base64_decodeStreamToStream')
+   EXPORT symbol('base64_getUserData')
+ENDPGMEXP
+
