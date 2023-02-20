@@ -40,13 +40,11 @@ dcl-proc main;
   dcl-s inFD int(10) inz(-1);
   dcl-s outFD int(10) inz(-1);
   dcl-s size uns(10);
-  dcl-s msg char(52);
 
   // Read input data in binary mode.
   inFD = open(inputFile: O_RDONLY + O_SHARE_RDONLY);
   if (inFD = -1);
-    msg = getSystemError();
-    dsply msg;
+    println(getSystemError());
     return;
   endif;
 
@@ -56,15 +54,13 @@ dcl-proc main;
             : S_IRUSR + S_IWUSR + S_IRGRP + S_IWGRP + S_IROTH + S_IWOTH
             : 1208: 0);
   if (outFD = -1);
-    msg = getSystemError();
-    dsply msg;
+    println(getSystemError());
     return;
   endif;
 
   size = base64_encodeStreamToStream (inFD: %paddr('read'): outFD: %paddr('write'));
 
-  msg = 'Bytes written to output file: ' + %char(size);
-  dsply msg;
+  println('Bytes written to output file: ' + %char(size));
 
   // Use one of the various Base64 online decoder pages for
   // decoding and validating the Base64 string:
@@ -109,6 +105,53 @@ dcl-proc getSystemError;
   errMsg = %str(strerror(err)) + ' (' + %char(err) + ')';
 
   return errMsg;
+
+end-proc;
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Sends a message to the command line.
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+dcl-proc println;
+   dcl-pi *N extproc(*dclcase);
+      i_text VARCHAR(128) value;
+   end-pi;
+
+   dcl-s msgKey CHAR(4) inz;
+
+   dcl-ds qMsgF qualified inz;
+      name CHAR(10);
+      lib CHAR(10);
+   end-ds;
+
+   dcl-ds errCode qualified inz;
+      bytPrv INT(10);
+      bytAvl INT(10);
+      excID CHAR(7);
+      reserved CHAR(1);
+      excDta CHAR(256);
+   end-ds;
+
+   dcl-pr QMHSNDPM extpgm('QMHSNDPM');
+      i_msgID CHAR(7) const;
+      i_qMsgF CHAR(20) const;
+      i_msgData CHAR(32767) const  options(*varsize );
+      i_length INT(10) const;
+      i_msgType CHAR(10) const;
+      i_callStkE CHAR(32767) const  options(*varsize );
+      i_callStkC INT(10) const;
+      o_msgKey CHAR(4);
+      io_ErrCode CHAR(32767) options(*varsize );
+   end-pr;
+
+   clear qMsgF;
+   qMsgF.name = 'QCPFMSG';
+   qMsgF.lib  = '*LIBL';
+
+   clear errCode;
+   errCode.bytPrv = %size(errCode);
+
+   QMHSNDPM('CPF9897': qMsgF: i_text: %len(i_text): '*INFO'
+            : '*CTLBDY': 1: msgKey: errCode);
 
 end-proc;
 
