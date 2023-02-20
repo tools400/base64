@@ -1,20 +1,39 @@
 **free
 //=============================================================================
+// Copyright (c) 2005-2023 Scott C. Klement, Thomas Raddatz
+// All rights reserved.
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions
+// are met:
+// 1. Redistributions of source code must retain the above copyright
+//    notice, this list of conditions and the following disclaimer.
+// 2. Redistributions in binary form must reproduce the above copyright
+//    notice, this list of conditions and the following disclaimer in the
+//    documentation and/or other materials provided with the distribution.
+//
+// THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
+// ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+// ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
+// FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+// DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+// OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+// HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+// LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+// OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+// SUCH DAMAGE.
+//=============================================================================
 //  BASE64R4 -- Service Program to Encode/Decode data using the
 //              base64 algorithm.
 //                               Scott Klement, January 14, 2005
 //  To Compile:
-//        CRTRPGMOD BASE64R4 SRCFILE(xxx/QBASE64) DBGVIEW(*LIST)
-//        CRTSRVPGM SRVPGM(BASE64) SRCFILE(xxx/QBASE64)
+//        CHGCURLIB CURLIB(xxx)
+//        ADDLIBLE LIB(xxx)
+//        CRTRPGMOD BASE64R4 SRCFILE(QBASE64) DBGVIEW(*LIST)
+//        CRTSRVPGM SRVPGM(BASE64R4) SRCFILE(QBASE64) SRCMBR(BASE64)
 //        CRTBNDDIR BNDDIR(BASE64)
-//        ADDBNDDIRE BNDDIR(BASE64) OBJ((BASE64 *SRVPGM))
-//=============================================================================
-//  Author  :  Thomas Raddatz
-//  E-mail  :  thomas.raddatz@tools400.de
-//  Homepage:  www.tools400.de
-//=============================================================================
-//  This Base64 encoder/decoder was initially developed by Scott
-//  Klement. It has been enhanced by Thomas Raddatz.
+//        ADDBNDDIRE BNDDIR(BASE64) OBJ((BASE64R4 *SRVPGM))
 //=============================================================================
 //  History:
 //
@@ -45,30 +64,6 @@
 //  19.02.2013  Th.Raddatz    Converted to **free.
 //                            Added procedure base64_getUserData().
 //
-//=============================================================================
-// Copyright (c) 2005-2023 Scott C. Klement
-// All rights reserved.
-//
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions
-// are met:
-// 1. Redistributions of source code must retain the above copyright
-//    notice, this list of conditions and the following disclaimer.
-// 2. Redistributions in binary form must reproduce the above copyright
-//    notice, this list of conditions and the following disclaimer in the
-//    documentation and/or other materials provided with the distribution.
-//
-// THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
-// ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-// ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
-// FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-// DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
-// OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
-// HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
-// LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
-// OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
-// SUCH DAMAGE.
 //=============================================================================
 //   >>PRE-COMPILER<<
 //     >>CRTCMD<<  CRTRPGMOD   MODULE(&LI/&OB) +
