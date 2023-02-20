@@ -1,9 +1,6 @@
 **free
 //=============================================================================
-// Copyright (c) 2005-2023 Scott C. Klement
-// All rights reserved.
-//
-// Copyright (c) 2023 Thomas Raddatz
+// Copyright (c) 2005-2023 Scott C. Klement, Thomas Raddatz
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
