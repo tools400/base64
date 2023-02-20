@@ -97,7 +97,7 @@ dcl-proc yajl_addBase64Stmf;
 
   errMsg = '';
 
-  // Create YAJL extending buffer, used as output stream
+  // Create YAJL expanding buffer, used as output stream
   hExBuf = yajl_exbuf_new(65536);
 
   // Open input stream file in binary mode
