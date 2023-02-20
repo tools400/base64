@@ -4,6 +4,11 @@
 //  This example demonstrates how to read a stream file and encode it
 //  to Base64. The output is stored as utf-8 in another stream file.
 // ============================================================================
+//  To Compile:
+//        CHGCURLIB CURLIB(xxx)
+//        ADDLIBLE LIB(xxx)
+//        CRTBNDRPG PGM(EXAMPLE03) SRCFILE(QBASE64) DBGVIEW(*LIST)
+// ============================================================================
 //   >>PRE-COMPILER<<
 //     >>CRTCMD<<  CRTBNDRPG   PGM(&LI/&OB) SRCFILE(&SL/&SF) SRCMBR(&SM);
 //     >>COMPILE<<

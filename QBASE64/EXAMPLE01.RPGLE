@@ -4,6 +4,11 @@
 //  This example demonstrates how to encode a given buffer to Base64. The
 //  result is stored in a buffer.
 // ============================================================================
+//  To Compile:
+//        CHGCURLIB CURLIB(xxx)
+//        ADDLIBLE LIB(xxx)
+//        CRTBNDRPG PGM(EXAMPLE01) SRCFILE(QBASE64) DBGVIEW(*LIST)
+// ============================================================================
 //   >>PRE-COMPILER<<
 //     >>CRTCMD<<  CRTBNDRPG   PGM(&LI/&OB) SRCFILE(&SL/&SF) SRCMBR(&SM);
 //     >>COMPILE<<

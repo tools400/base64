@@ -5,6 +5,11 @@
 //  result is stored in a buffer.
 //  The output buffer must match 'Hello World'.
 // ============================================================================
+//  To Compile:
+//        CHGCURLIB CURLIB(xxx)
+//        ADDLIBLE LIB(xxx)
+//        CRTBNDRPG PGM(EXAMPLE11) SRCFILE(QBASE64) DBGVIEW(*LIST)
+// ============================================================================
 //   >>PRE-COMPILER<<
 //     >>CRTCMD<<  CRTBNDRPG   PGM(&LI/&OB) SRCFILE(&SL/&SF) SRCMBR(&SM);
 //     >>COMPILE<<

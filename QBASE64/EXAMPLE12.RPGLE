@@ -5,6 +5,11 @@
 //  result is stored in a stream file.
 //  The output stream file must match 'Hello World'.
 // ============================================================================
+//  To Compile:
+//        CHGCURLIB CURLIB(xxx)
+//        ADDLIBLE LIB(xxx)
+//        CRTBNDRPG PGM(EXAMPLE12) SRCFILE(QBASE64) DBGVIEW(*LIST)
+// ============================================================================
 //   >>PRE-COMPILER<<
 //     >>CRTCMD<<  CRTBNDRPG   PGM(&LI/&OB) SRCFILE(&SL/&SF) SRCMBR(&SM);
 //     >>COMPILE<<

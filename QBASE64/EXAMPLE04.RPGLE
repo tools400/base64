@@ -3,6 +3,12 @@
 //  Reads data from a stream file and adds it to Json.
 //  This example demonstrates how to append a given PDF file to a Json file.
 // ============================================================================
+//  To Compile:
+//        CHGCURLIB CURLIB(xxx)
+//        ADDLIBLE LIB(xxx)
+//        ADDLIBLE LIB(LIBYAJL)
+//        CRTBNDRPG PGM(EXAMPLE04) SRCFILE(QBASE64) DBGVIEW(*LIST)
+// ============================================================================
 //   >>PRE-COMPILER<<
 //     >>CRTCMD<<  CRTBNDRPG   PGM(&LI/&OB) SRCFILE(&SL/&SF) SRCMBR(&SM);
 //     >>COMPILE<<

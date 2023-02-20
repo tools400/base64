@@ -4,6 +4,12 @@
 //  This example demonstrates how to read and decode data from a Json file. The
 //  result is stored in a stream file.
 // ============================================================================
+//  To Compile:
+//        CHGCURLIB CURLIB(xxx)
+//        ADDLIBLE LIB(xxx)
+//        ADDLIBLE LIB(LIBYAJL)
+//        CRTBNDRPG PGM(EXAMPLE14) SRCFILE(QBASE64) DBGVIEW(*LIST)
+// ============================================================================
 //   >>PRE-COMPILER<<
 //     >>CRTCMD<<  CRTBNDRPG   PGM(&LI/&OB) SRCFILE(&SL/&SF) SRCMBR(&SM);
 //     >>COMPILE<<
