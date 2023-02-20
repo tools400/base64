@@ -1,6 +1,6 @@
      /* ====================================================================== */
      /* >>PRE-COMPILER<<                                                       */
-     /*   >>CRTCMD<< CRTSRVPGM    SRVPGM(&LI/&OB);                             */
+     /*   >>CRTCMD<< CRTSRVPGM    SRVPGM(&LI/BASE64R4);                        */
      /*   >>IMPORTANT<<                                                        */
      /*     >>PARM<< MODULE(&LI/BASE64R4);                                     */
      /*     >>PARM<< EXPORT(*SRCFILE);                                         */
@@ -21,8 +21,8 @@ STRPGMEXP PGMLVL(*CURRENT) SIGNATURE('BASE64R4 V1.00  ')
    EXPORT symbol('base64_decode')
    EXPORT symbol('base64_encodeBufferToStream')
    EXPORT symbol('base64_encodeStreamToStream')
-   EXPORT  symbol('base64_decodeBufferToStream')
-   EXPORT  symbol('base64_decodeStreamToStream')
+   EXPORT symbol('base64_decodeBufferToStream')
+   EXPORT symbol('base64_decodeStreamToStream')
    EXPORT symbol('base64_getUserData')
 ENDPGMEXP
 
