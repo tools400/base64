@@ -15,20 +15,18 @@
 //       >>PARM<< TRUNCNBR(*NO);
 //       >>PARM<< DBGVIEW(*LIST);
 //       >>PARM<< OPTION(*EVENTF);
-//       >>PARM<< TGTRLS(V7R2M0);
+//       >>PARM<< TGTRLS(V7R3M0);
 //     >>END-COMPILE<<
 //     >>EXECUTE<<
 //   >>END-PRE-COMPILER<<
 //=============================================================================
 
-ctl-opt debug option(*SRCSTMT : *NODEBUGIO)
-        dftactgrp(*no) actgrp(*new) bnddir('BASE64')
-        main(main);
+ctl-opt debug option(*srcstmt: *nodebugio) dftactgrp(*no) actgrp(*new) bnddir('BASE64') main(main);
 
 /include qbase64,base64_h
 /include qbase64,ifsio_h
 
-dcl-pr main  extpgm('EXAMPLE02');
+dcl-pr main extpgm('EXAMPLE02');
 end-pr;
 
 dcl-proc main;
@@ -56,11 +54,11 @@ dcl-proc main;
 
   println('Bytes written to output file: ' + %char(size));
 
-  // Use one of the various Base64 online decoder pages for
-  // decoding and validating the Base64 string:
-  //   https://www.base64decode.org/
-  //   https://www.utilities-online.info/base64
-  //   https://www.base64decode.net/
+// Use one of the various Base64 online decoder pages for
+// decoding and validating the Base64 string:
+//   https://www.base64decode.org/
+//   https://www.utilities-online.info/base64
+//   https://www.base64decode.net/
 
 on-exit;
 
@@ -101,46 +99,46 @@ end-proc;
 // Sends a message to the command line.
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 dcl-proc println;
-   dcl-pi *N extproc(*dclcase);
-      i_text VARCHAR(128) value;
-   end-pi;
+  dcl-pi *n extproc(*dclcase);
+    i_text varchar(128) value;
+  end-pi;
 
-   dcl-s msgKey CHAR(4) inz;
+  dcl-s msgKey char(4) inz;
 
-   dcl-ds qMsgF qualified inz;
-      name CHAR(10);
-      lib CHAR(10);
-   end-ds;
+  dcl-ds qMsgF qualified inz;
+    name char(10);
+    lib  char(10);
+  end-ds;
 
-   dcl-ds errCode qualified inz;
-      bytPrv INT(10);
-      bytAvl INT(10);
-      excID CHAR(7);
-      reserved CHAR(1);
-      excDta CHAR(256);
-   end-ds;
+  dcl-ds errCode qualified inz;
+    bytPrv   int(10);
+    bytAvl   int(10);
+    excID    char(7);
+    reserved char(1);
+    excDta   char(256);
+  end-ds;
 
-   dcl-pr QMHSNDPM extpgm('QMHSNDPM');
-      i_msgID CHAR(7) const;
-      i_qMsgF CHAR(20) const;
-      i_msgData CHAR(32767) const  options(*varsize );
-      i_length INT(10) const;
-      i_msgType CHAR(10) const;
-      i_callStkE CHAR(32767) const  options(*varsize );
-      i_callStkC INT(10) const;
-      o_msgKey CHAR(4);
-      io_ErrCode CHAR(32767) options(*varsize );
-   end-pr;
+  dcl-pr QMHSNDPM extpgm('QMHSNDPM');
+    i_msgID    char(7) const;
+    i_qMsgF    char(20) const;
+    i_msgData  char(32767) options(*varsize) const;
+    i_length   int(10) const;
+    i_msgType  char(10) const;
+    i_callStkE char(32767) options(*varsize) const;
+    i_callStkC int(10) const;
+    o_msgKey   char(4);
+    io_ErrCode char(32767) options(*varsize);
+  end-pr;
 
-   clear qMsgF;
-   qMsgF.name = 'QCPFMSG';
-   qMsgF.lib  = '*LIBL';
+  clear qMsgF;
+  qMsgF.name = 'QCPFMSG';
+  qMsgF.lib  = '*LIBL';
 
-   clear errCode;
-   errCode.bytPrv = %size(errCode);
+  clear errCode;
+  errCode.bytPrv = %size(errCode);
 
-   QMHSNDPM('CPF9897': qMsgF: i_text: %len(i_text): '*INFO'
-            : '*CTLBDY': 1: msgKey: errCode);
+  QMHSNDPM('CPF9897': qMsgF: i_text: %len(i_text): '*INFO'
+           : '*CTLBDY': 1: msgKey: errCode);
 
 end-proc;
 

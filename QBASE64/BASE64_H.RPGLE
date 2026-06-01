@@ -51,10 +51,10 @@ end-pr;
 //      output may have been truncated.
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 dcl-pr base64_encode uns(10) extproc('base64_encode');
-  Input        pointer value;
-  InputLen     uns(10) value;
-  Output       pointer value;
-  OutputSize   uns(10) value;
+  Input      pointer value;
+  InputLen   uns(10) value;
+  Output     pointer value;
+  OutputSize uns(10) value;
 end-pr;
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -68,13 +68,13 @@ end-pr;
 //  Returns length of encoded data, or -1 on error.
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 dcl-pr base64_encodeStreamToStream uns(10) extproc('base64_encodeStreamToStream');
-  readFD       int(10) value;
-  pRead        pointer(*proc) value;
-  writeFD      int(10) value;
-  pWrite       pointer(*proc) value;
-  pUserData    pointer value options(*nopass);
+  readFD    int(10) value;
+  pRead     pointer(*proc) value;
+  writeFD   int(10) value;
+  pWrite    pointer(*proc) value;
+  pUserData pointer options(*nopass) value;
 end-pr;
-//
+
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //  base64_encodeBuffer:  Encode binary data using Base64 encoding
 //
@@ -86,11 +86,11 @@ end-pr;
 //  Returns length of encoded data.
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 dcl-pr base64_encodeBufferToStream uns(10) extproc('base64_encodeBufferToStream');
-  Input        pointer value;
-  InputLen     uns(10) value;
-  writeFD      int(10) value;
-  pWrite       pointer(*proc) value;
-  pUserData    pointer value options(*nopass);
+  Input     pointer value;
+  InputLen  uns(10) value;
+  writeFD   int(10) value;
+  pWrite    pointer(*proc) value;
+  pUserData pointer options(*nopass) value;
 end-pr;
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -106,10 +106,10 @@ end-pr;
 //      output may have been truncated.
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 dcl-pr base64_decode uns(10) extproc('base64_decode');
-  Input        pointer value;
-  InputLen     uns(10) value;
-  Output       pointer value;
-  OutputSize   uns(10) value;
+  Input      pointer value;
+  InputLen   uns(10) value;
+  Output     pointer value;
+  OutputSize uns(10) value;
 end-pr;
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -124,11 +124,11 @@ end-pr;
 //  Returns length of decoded data.
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 dcl-pr base64_decodeStreamToStream uns(10) extproc('base64_decodeStreamToStream');
-  readFD       int(10) value;
-  pRead        pointer(*proc) value;
-  writeFD      int(10) value;
-  pWrite       pointer(*proc) value;
-  pUserData    pointer value options(*nopass);
+  readFD    int(10) value;
+  pRead     pointer(*proc) value;
+  writeFD   int(10) value;
+  pWrite    pointer(*proc) value;
+  pUserData pointer options(*nopass) value;
 end-pr;
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -143,10 +143,10 @@ end-pr;
 //  Returns length of decoded data.
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 dcl-pr base64_decodeBufferToStream uns(10) extproc('base64_decodeBufferToStream');
-  Input        pointer value;
-  InputLen     uns(10) value;
-  writeFD      int(10) value;
-  pWrite       pointer(*proc) value;
-  pUserData    pointer value options(*nopass);
+  Input     pointer value;
+  InputLen  uns(10) value;
+  writeFD   int(10) value;
+  pWrite    pointer(*proc) value;
+  pUserData pointer options(*nopass) value;
 end-pr;
 
